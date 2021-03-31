@@ -1,0 +1,32 @@
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version = 0.1
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.cloud:libraries-bom:19.2.1'
+    compile 'com.google.cloud:google-cloud-vision:1.102.0'
+}
+
+task copyDependencies(type: Copy){
+    from configurations.runtime
+    into "build/ext_libs"
+}
+
+task fatJar(type: Jar){
+    manifest {
+        attributes 'Main-Class': 'gti.ingredientsgenius.APITest'
+        // attributes 'Main-Class': 'gti.Test'
+    }
+    from { configurations.compile.collect { it.isDirectory()? it: zipTree(it)}}
+    with jar
+}
+
+task runDemo(type: JavaExec){
+    main = '-jar';
+    args jar.archivePath
+}
