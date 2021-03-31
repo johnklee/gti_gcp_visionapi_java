@@ -41,11 +41,33 @@ public class Image2LabelAgent {
 		this.inti_gcp_vision_client();
 		this.load_settings();
 	}
-	
+
+    /**
+	 * Overloading version of API:label(File imageFile)
+	 * <p>
+	 * This method always returns immediately, whether or not the image exists. When
+	 * this applet attempts to draw the image on the screen, the data will be
+	 * loaded. The graphics primitives that draw the image will incrementally paint
+	 * on the screen.
+	 *
+	 * @param imageFilePath  Input image file for labeling.
+	 * @return The list of label associated with given input image file.
+	 */	
 	public List<String> label(String imageFilePath) throws Exception{
 		return this.label(new File(imageFilePath));
 	}
 
+    /**
+	 * Label the input File `imageFile`
+	 * <p>
+	 * This method always returns immediately, whether or not the image exists. When
+	 * this applet attempts to draw the image on the screen, the data will be
+	 * loaded. The graphics primitives that draw the image will incrementally paint
+	 * on the screen.
+	 *
+	 * @param imageFile  Input image file for labeling.
+	 * @return The list of label associated with given input image file.
+	 */
 	public Map<File, List<String>> batch_label(List<File> imageFiles) throws Exception {
 		Map<File, List<String>> rstMap = new TreeMap<File, List<String>>();
 		
@@ -83,7 +105,18 @@ public class Image2LabelAgent {
 		}
 		return rstMap;
 	}
-	
+
+    /**
+	 * Label the input File `imageFile`
+	 * <p>
+	 * This method always returns immediately, whether or not the image exists. When
+	 * this applet attempts to draw the image on the screen, the data will be
+	 * loaded. The graphics primitives that draw the image will incrementally paint
+	 * on the screen.
+	 *
+	 * @param imageFile  Input image file for labeling.
+	 * @return The list of label associated with given input image file.
+	 */	
 	public List<String> label(File imageFile) throws Exception{
 		List<String> labels = new ArrayList<String>();
 		byte[] data = Files.toByteArray(imageFile);
