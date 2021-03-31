@@ -72,7 +72,7 @@ Obtained labeling result:
 Total 10 label(s) received!
 ```
 ### Wrapper API Demo
-In order to get rid of the dependency for the future change from Vision API, we create a class `[**Image2LabelAgent**](src/main/java/gti/foodgenie/core/Image2LabelAgent.java)` to wrap the Vision API and provide below API signature for our RPC service:
+In order to get rid of the dependency for the future change from Vision API, we create a class **[Image2LabelAgent](src/main/java/gti/foodgenie/core/Image2LabelAgent.java)** to wrap the Vision API and provide below API signature for our RPC service:
 ```java
 	/**
 	 * Label the input File `imageFile`
@@ -89,6 +89,9 @@ In order to get rid of the dependency for the future change from Vision API, we 
 ```
 Below is sample code on how to call this API:
 ```java
+import gti.foodgenie.core.Image2LabelAgent;
+
+...
     public static void main(String[] args) throws Exception{
         // Initialize Image 2 label agent
         Image2LabelAgent vAgent = new Image2LabelAgent(null);
