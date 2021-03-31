@@ -1,4 +1,5 @@
-package gti.ingredientsgenius;
+package gti.foodgenie;
+
 
 import com.google.cloud.vision.v1.AnnotateImageRequest;
 import com.google.cloud.vision.v1.AnnotateImageResponse;
@@ -15,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class APITest{
     public static void main(String args[]) throws Exception{

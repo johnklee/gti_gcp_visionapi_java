@@ -10,3 +10,6 @@ copydep:
 
 demo: copydep build
 	./runAPITest.sh
+
+demo_wrapper: copydep build
+	./runImage2LabelAgent.sh
